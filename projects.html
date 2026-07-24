@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Проєкти</title>
+</head>
+<body>
+
+  <div class="frame">
+    <div class="titlebar">★ <span class="blink">мої проєкти</span> ★</div>
+
+    <marquee behavior="scroll" direction="left">
+      тут все, що я зробила ✦彡 клікай на "Детальніше", щоб дізнатись більше 彡✦
+    </marquee>
+
+    <div class="filters-wrap">
+      <button class="chip active" data-filter="all">Все</button>
+      <button class="chip" data-filter="programs">Програми</button>
+      <button class="chip" data-filter="video">Відео</button>
+      <button class="chip" data-filter="notes">Нотатки</button>
+    </div>
+
+    <div class="board">
+
+      <div class="card release fade-in" data-cat="programs">
+        <div class="stub">РЕЛІЗ</div>
+        <div class="card-inner">
+          <span class="tag">Програма</span>
+          <h2>TaskFlow — трекер завдань</h2>
+          <p>Невеликий десктопний застосунок для трекінгу задач з нагадуваннями та тегами.</p>
+          <div class="release-links">
+            <a href="#" class="primary">↓ Завантажити</a>
+            <a href="#">Детальніше →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in" data-cat="notes">
+        <h2>Чому я почав цей проєкт</h2>
+        <p>Хотів простий інструмент без зайвого.</p>
+      </div>
+
+      <div class="card release fade-in" data-cat="programs">
+        <div class="stub">РЕЛІЗ</div>
+        <div class="card-inner">
+          <span class="tag">Програма</span>
+          <h2>PixelSort — сортувальник зображень</h2>
+          <p>Утиліта для пакетного сортування й перейменування фото за EXIF-даними.</p>
+          <div class="release-links">
+            <a href="#" class="primary">↓ Завантажити</a>
+            <a href="#">Детальніше →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="back">
+      <a href="index.html">← Назад на головну</a>
+    </div>
+  </div>
+
+  <script>
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.card');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+
+        const filter = chip.dataset.filter;
+
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

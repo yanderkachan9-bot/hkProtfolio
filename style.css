@@ -1,0 +1,393 @@
+:root {
+  --accent: #4cda41;
+  --accent-dark: #1a7f13;
+  --accent-glow: rgba(76, 218, 65, 0.35);
+  --bg: #14181a;
+  --panel: #1d2225;
+  --panel-dark: #110a1a; /* не використовується, лишила для консистентності з іншими темними блоками */
+  --text: #ece7dc;
+  --muted: #8c948f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 40px 15px;
+  text-align: center;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:visited {
+  color: var(--accent);
+}
+
+a:hover {
+  color: #9dfb6b;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+/* ---- MySpace-рамка навколо всієї сторінки ---- */
+
+.frame {
+  max-width: 960px;
+  margin: 0 auto;
+  background: var(--panel);
+  border: 6px double var(--accent);
+  box-shadow: 0 0 25px var(--accent-glow);
+  text-align: center;
+}
+
+.titlebar {
+  background: var(--accent);
+  color: #0a1508;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+marquee {
+  background: #14181a;
+  color: var(--accent);
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+.back {
+  padding: 18px 0;
+  font-size: 14px;
+}
+
+/* ---- плитки навігації (index.html) ---- */
+
+.tiles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+}
+
+.card {
+  background: #232a2d;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.tiles .card {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---- про мене: фото-блок і інфо (в MySpace-дусі, зелена гама) ---- */
+
+.solo-card {
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.photo-box {
+  border: 3px solid var(--accent);
+  background: #232a2d;
+  width: 180px;
+  flex-shrink: 0;
+  text-align: center;
+  padding: 6px;
+  margin: 0 auto;
+}
+
+.photo-box img {
+  width: 100%;
+  display: block;
+}
+
+.photo-box .caption {
+  font-size: 13px;
+  color: var(--accent);
+  margin-top: 6px;
+}
+
+.info {
+  flex: 1;
+  min-width: 220px;
+}
+
+.info-row {
+  border-bottom: 1px dashed #333;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+.info-row .label {
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+.about-box {
+  margin: 0 24px 24px;
+  border: 2px solid #333;
+  background: #232a2d;
+  padding: 18px;
+  line-height: 1.6;
+  text-align: left;
+  font-size: 14px;
+}
+
+.about-box h3 {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.counter {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 0 20px;
+}
+
+.counter b {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+/* ---- проєкти: фільтри й картки-квитки ---- */
+
+.filters,
+.filters-wrap {
+  padding: 20px 0;
+}
+
+.chip {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid #333;
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin: 0 4px;
+  cursor: pointer;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.chip.active,
+.chip:hover {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+  color: #0a1508;
+  font-weight: bold;
+}
+
+.board {
+  column-count: 3;
+  column-gap: 20px;
+  padding: 0 24px 24px;
+  text-align: left;
+}
+
+.board .card {
+  margin-bottom: 20px;
+  break-inside: avoid;
+}
+
+.card.release {
+  position: relative;
+  padding-left: 26px;
+}
+
+.card.release::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 0;
+  bottom: 0;
+  border-left: 2px dashed rgba(236,231,220,0.18);
+}
+
+.card.release::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  background-image: radial-gradient(circle 6px, #232a2d 6px, transparent 6.5px);
+  background-repeat: repeat-y;
+  background-size: 24px 28px;
+}
+
+.stub {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 26px;
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+.card-inner {
+  padding-left: 20px;
+}
+
+.tag {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.release-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.release-links a {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.release-links a.primary {
+  background: var(--accent);
+  color: #0a1508;
+  font-weight: bold;
+  border-color: var(--accent-dark);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- пропозиції: форма ---- */
+
+textarea {
+  width: 100%;
+  max-width: 500px;
+  height: 120px;
+  background: #232a2d;
+  color: var(--text);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: var(--accent);
+  color: #0a1508;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-family: "JetBrains Mono", monospace;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.submit-btn:hover {
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+#status {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---- скролбар ---- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

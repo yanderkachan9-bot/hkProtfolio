@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="retro.css">
+  <title>Пропозиції</title>
+</head>
+<body>
+
+  <div class="frame" style="text-align:center; padding-bottom:24px;">
+    <div class="titlebar">✦ <span class="blink">пропозиції</span> ✦</div>
+
+    <marquee behavior="scroll" direction="left">
+      напиши свою ідею нижче ★彡 буду рада прочитати 彡★
+    </marquee>
+
+    <div style="padding:20px;">
+      <p>Напиши, що б ти хотів(-ла), щоб я зробила, або будь-яку іншу ідею.</p>
+
+      <textarea id="suggestion-text" placeholder="Твоя ідея тут..."></textarea>
+      <br>
+      <button id="send-btn" class="submit-btn">Надіслати</button>
+      <p id="status"></p>
+    </div>
+
+    <div class="back">
+      <a href="index.html">← назад на головну</a>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('send-btn');
+    const textarea = document.getElementById('suggestion-text');
+    const status = document.getElementById('status');
+
+    btn.addEventListener('click', () => {
+      const text = textarea.value.trim();
+
+      if (!text) {
+        status.textContent = 'Спочатку напиши щось :)';
+        return;
+      }
+
+      fetch('http://127.0.0.1:5000/suggestions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: text })
+      })
+        .then(response => response.json())
+        .then(data => {
+          status.textContent = 'Дякую! Пропозицію надіслано.';
+          textarea.value = '';
+        })
+        .catch(error => {
+          status.textContent = 'Помилка: сервер не відповідає. Він точно запущений?';
+        });
+    });
+  </script>
+
+</body>
+</html>
