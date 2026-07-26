@@ -17,11 +17,29 @@ body {
   margin: 0;
   font-family: "JetBrains Mono", monospace;
   background-color: var(--bg);
+  background-image: repeating-conic-gradient(#1c2225 0% 25%, var(--bg) 0% 50%);
+  background-size: 24px 24px;
   color: var(--text);
   padding: 40px 15px;
   text-align: center;
 }
+.lang-switch {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 12px;
+  font-size: 12px;
+  vertical-align: middle;
+}
 
+.lang-switch span {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.lang-switch span.active {
+  opacity: 1;
+  text-decoration: underline;
+}
 a {
   color: var(--accent);
   text-decoration: none;
@@ -390,4 +408,20 @@ textarea {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
+}
+.lang-switch {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 12px;
+  font-size: 12px;
+}
+
+.lang-switch span {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.lang-switch span.active {
+  opacity: 1;
+  text-decoration: underline;
 }

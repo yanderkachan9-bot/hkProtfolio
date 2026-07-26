@@ -9,27 +9,37 @@
 <body>
 
   <div class="frame">
-    <div class="titlebar">✦ <span class="blink">моя дошка</span> ✦</div>
+    <div class="titlebar">
+      ✦ <span class="blink" data-uk="моя дошка" data-en="my board">моя дошка</span> ✦
+      <span class="lang-switch">
+        <span class="lang-uk" onclick="applyLanguage('uk')">Державною</span>|<span class="lang-en" onclick="applyLanguage('en')">EN</span>
+      </span>
+    </div>
 
-    <marquee behavior="scroll" direction="left">
-      вітаю на моїй дошці ★彡 тут мої проєкти, пропозиції й трохи про мене 彡★
+    <marquee behavior="scroll" direction="left" data-uk="彡✦ велкам на моїй дошці ✦彡 тут мої проєкти, пропозиції й трохи про мене" data-en="welcome to my board ✦彡 here are my projects, suggestions and a bit about me 彡✦">
+      彡✦ велкам на моїй дошці ✦彡 тут мої проєкти, пропозиції й трохи про мене 
     </marquee>
 
     <div class="tiles">
       <div class="tile">
         <img src="about.jpg" alt="Про мене">
-        <a href="about.html">Про мене</a>
+        <a href="about.html" data-uk="Про мене" data-en="About me">Про мене</a>
       </div>
       <div class="tile">
         <img src="projects.jpg" alt="Проєкти">
-        <a href="projects.html">Проєкти</a>
+        <a href="projects.html" data-uk="Проєкти" data-en="Projects">Проєкти</a>
       </div>
       <div class="tile">
         <img src="suggestions.jpg" alt="Пропозиції">
-        <a href="suggestions.html">Пропозиції</a>
+        <a href="suggestions.html" data-uk="Пропозиції" data-en="Suggestions">Пропозиції</a>
+      </div>
+      <div class="tile">
+        <img src="guestbook.jpg" alt="Проєкти">
+        <a href="guestbook.html" data-uk="Коментарі" data-en="Guestbook">Проєкти</a>
       </div>
     </div>
   </div>
 
+  <script src="lang.js"></script>
 </body>
 </html>

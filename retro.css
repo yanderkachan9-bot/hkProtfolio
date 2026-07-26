@@ -30,7 +30,23 @@ body {
 .blink {
   animation: blink 1s step-start infinite;
 }
+.lang-switch {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 12px;
+  font-size: 12px;
+  vertical-align: middle;
+}
 
+.lang-switch span {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.lang-switch span.active {
+  opacity: 1;
+  text-decoration: underline;
+}
 a {
   color: var(--accent);
 }

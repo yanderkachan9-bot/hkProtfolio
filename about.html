@@ -16,9 +16,9 @@
     }
 
     @keyframes blink {
-     0%, 49% { color: #000; }
-    50%, 100% { color: #fff; }
-}
+      0%, 49% { color: #000; }
+      50%, 100% { color: #fff; }
+    }
 
     .blink {
       animation: blink 1s step-start infinite;
@@ -40,6 +40,24 @@
       padding: 8px;
       letter-spacing: 2px;
       text-transform: uppercase;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 6px;
+      margin-left: 12px;
+      font-size: 12px;
+      vertical-align: middle;
+    }
+
+    .lang-switch span {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+
+    .lang-switch span.active {
+      opacity: 1;
+      text-decoration: underline;
     }
 
     .content {
@@ -102,6 +120,9 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+    .about-box p {
+      white-space: pre-line;
+    }
 
     marquee {
       background: #111;
@@ -138,39 +159,88 @@
 <body>
 
   <div class="frame">
-    <div class="titlebar">✦ <span class="blink">про мене</span> ✦</div>
+    <div class="titlebar">
+      ✦ <span class="blink" data-uk="про мене" data-en="about me">про мене</span> ✦
+      <span class="lang-switch">
+        <span class="lang-uk" onclick="applyLanguage('uk')">Державною</span>|<span class="lang-en" onclick="applyLanguage('en')">EN</span>
+      </span>
+    </div>
 
-    <marquee behavior="scroll" direction="left">
-      дякую що зайшли на мою сторінку ★彡 не забудьте лишити пропозицію ★彡 завжди рада новим ідеям 彡★
+    <marquee behavior="scroll" direction="left" data-uk="сенкс що зайшли на мою НЕЙМОВІРНУ сторінку ★彡 не забудьте лишити пропозицію!!! ★彡 завжди рада новим ідеям 彡★" data-en="thanks for visiting my page ★彡 don't forget to leave a suggestion ★彡 always happy to hear new ideas 彡★">
+      сенкс що зайшли на мою НЕЙМОВІРНУ сторінку ★彡 не забудьте лишити пропозицію!!! ★彡 завжди рада новим ідеям 彡★
     </marquee>
 
     <div class="content">
       <div class="photo-box">
         <img src="about.jpg" alt="Моє фото">
-        <div class="caption">це я)</div>
+        <div class="caption" data-uk="це я)" data-en="that's me)">це я)</div>
       </div>
 
       <div class="info">
-        <div class="info-row"><span class="label">настрій:</span> ✧ натхненна ✧</div>
-        <div class="info-row"><span class="label">останній візит:</span> щойно</div>
-        <div class="info-row"><span class="label">займаюсь:</span> пишу свої програми</div>
-        <div class="info-row"><span class="label">статус:</span> <span class="blink">● онлайн</span></div>
+        <div class="info-row"><span class="label" data-uk="хто я?" data-en="хто я?">хто я?</span> <span data-uk="✧ hakaga ✧" data-en="✧ hakaga ✧">✧ hakaga ✧</span></div>
+        
+        <div class="info-row"><span class="label" data-uk="чим займаюсь?" data-en="doing what?">чим займаюсь?</span> <span data-uk="пишу НЕЙМОВІРНІ проєкти" data-en="building my own apps">пишу свої програми</span></div>
+        <div class="info-row"><span class="label" data-uk="статус:" data-en="status:">статус:</span> <span class="blink" data-uk="● помираю за роботою" data-en="● online">● помираю за роботою</span></div>
+        <div class="info-row"><span class="label" data-uk="мови:" data-en="languages:">мови:</span> <span data-uk="C++, Python, HTML, CSS" data-en="C++, Python, HTML, CSS">C++, Python, HTML, CSS</span></div>
       </div>
     </div>
 
     <div class="about-box">
-      <h3>про мене</h3>
-      <p>Тут буде короткий текст про тебе — хто ти, чим займаєшся, що вмієш, звідки натхнення для проєктів.</p>
-    </div>
+          <h3 data-uk="про мене" data-en="about me">про мене</h3>
+          <p data-uk="Ззовні я намагаюся виглядати як загадкова дівчина з Пінтересту. Всередині я — тривожний грізлі, який о третій ночі гуглить, чому мій власний самописний антивірус на C++ блокує мій же комп'ютер.
+
+        Свого часу я поклала залишки нервової системи на навчання в університеті. Звучить як опис успішної та надзвичайно цілеспрямованої людини, правда? На ділі ж я використовую цей потужний інтелектуальний багаж для того, щоб... робити візуальні новели на Ren'Py, де двовимірні персонажі просто кліпають очима..? Якщо ви скажете, що ваш код не працює — я просто поплачу разом із вами.
+
+        І наостанок: цей сайт (як і ще кілька інших) розробила я особисто.
+
+        Так, я об'єктивно крута, тому, будь ласка, замовляйте в мене проєкти або просто заберіть мене вже хтось на роботу. Я офіційно безробітна, і мені дуже потрібні гроші, щоб оплачувати каву для нічного дебагу коду та купувати нові ігри для підтримки своєї стабільної нестабільності." data-en="On the outside, I try to look like a mysterious Pinterest girl. On the inside, I’m an anxious grizzly bear who, at 3 AM, is googling why my own custom C++ antivirus is blocking my own computer.
+
+At one point, I sacrificed the remnants of my nervous system to my university studies. Sounds like the description of a successful and incredibly driven person, right? In reality, I use this powerful intellectual baggage to... make visual novels in Ren'Py where 2D characters just blink their eyes..? If you tell me your code isn't working, I'll just cry right along with you.
+
+And lastly: I developed this website (along with a few others) personally.
+
+Yes, I am objectively awesome, so please, commission projects from me or someone just hire me already. I am officially unemployed, and I desperately need money to fund my coffee for late-night debugging and to buy new games to maintain my stable instability.">Ззовні я намагаюся виглядати як загадкова дівчина з Пінтересту. Всередині я — тривожний грізлі, який о третій ночі гуглить, чому мій власний самописний антивірус на C++ блокує мій же комп'ютер.
+
+        Свого часу я поклала залишки нервової системи на навчання в університеті. Звучить як опис успішної та надзвичайно цілеспрямованої людини, правда? На ділі ж я використовую цей потужний інтелектуальний багаж для того, щоб... робити візуальні новели на Ren'Py, де двовимірні персонажі просто кліпають очима..? Якщо ви скажете, що ваш код не працює — я просто поплачу разом із вами.
+
+        І наостанок: цей сайт (як і ще кілька інших) розробила я особисто.
+
+        Так, я об'єктивно крута, тому, будь ласка, замовляйте в мене проєкти або просто заберіть мене вже хтось на роботу. Я офіційно безробітна, і мені дуже потрібні гроші, щоб оплачувати каву для нічного дебагу коду та купувати нові ігри для підтримки своєї стабільної нестабільності.</p>
+        </div>
+        <div class="about-box">
+          <h3 data-uk="соцмережі" data-en="social media">соцмережі</h3>
+          <div class="info-row">
+            <span class="label">GitHub:</span>
+            <a href="https://github.com/yanderkachan9-bot" target="_blank">github.com/yanderkachan9-bot</a>
+          </div>
+          <div class="info-row">
+            <span class="label">Telegram:</span>
+            <a href="https://t.me/hakaga_a" target="_blank">@hakaga_a</a>
+          </div>
+          <div class="info-row">
+            <span class="label">Steam:</span>
+            <a href="https://steamcommunity.com/profiles/76561199077008404/" target="_blank">hakaga</a>
+          </div>
+          <div class="info-row">
+            <span class="label">itch.io</span>
+            <a href="https://itch.io/profile/hakaga" target="_blank">hakaga</a>
+          </div>
+          <div class="info-row">
+            <span class="label" data-uk="пошта:" data-en="email:">пошта:</span>
+            <a href="hakaga466@gmail.com">hakaga466@gmail.com</a>
+          </div>
+        </div>
 
     <div class="counter">
-      👁 переглядів сторінки: <b>0001337</b>
-    </div>
+      <span data-uk="👁 переглядів сторінки:" data-en="👁 page views:">👁 переглядів сторінки:</span> <b>0001337</b>
+<   <div>
 
     <div class="back">
-      <a href="index.html">← назад на головну</a>
+      <a href="index.html" data-uk="← назад на головну" data-en="← back to home">← назад на головну</a>
     </div>
   </div>
 
+  <script src="lang.js"></script>
+ 
 </body>
 </html>

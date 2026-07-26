@@ -11,48 +11,80 @@
 <body>
 
   <div class="frame">
-    <div class="titlebar">★ <span class="blink">мої проєкти</span> ★</div>
+    <div class="titlebar">
+      ★ <span class="blink" data-uk="мої проєкти" data-en="my projects">мої проєкти</span> ★
+      <span class="lang-switch">
+        <span class="lang-uk" onclick="applyLanguage('uk')">Державною</span>|<span class="lang-en" onclick="applyLanguage('en')">EN</span>
+      </span>
+    </div>
 
-    <marquee behavior="scroll" direction="left">
-      тут все, що я зробила ✦彡 клікай на "Детальніше", щоб дізнатись більше 彡✦
+    <marquee behavior="scroll" direction="left" data-uk="彡✦тут все, що я зробила ✦彡 клікай на «Детальніше», щоб дізнатись більше 彡✦" data-en="here's everything I've made ✦彡 click «Learn more» to find out more 彡✦">
+      彡✦тут все, що я зробила ✦彡 клікай на «Детальніше», щоб дізнатись більше 彡✦
     </marquee>
 
     <div class="filters-wrap">
-      <button class="chip active" data-filter="all">Все</button>
-      <button class="chip" data-filter="programs">Програми</button>
-      <button class="chip" data-filter="video">Відео</button>
-      <button class="chip" data-filter="notes">Нотатки</button>
+      <button class="chip active" data-filter="all" data-uk="Все" data-en="All">Все</button>
+      <button class="chip" data-filter="programs" data-uk="Програми" data-en="Programs">Програми</button>
+      <button class="chip" data-filter="bots" data-uk="Бот" data-en="Bot">Бот</button>
+      <button class="chip" data-filter="games" data-uk="Гра" data-en="Game">Гра</button>
+      <button class="chip" data-filter="webs" data-uk="Сайт" data-en="Web site">Сайт</button>
+      <button class="chip" data-filter="notes" data-uk="Нотатки" data-en="Notes">Нотатки</button>
     </div>
 
     <div class="board">
 
-      <div class="card release fade-in" data-cat="programs">
-        <div class="stub">РЕЛІЗ</div>
+      <div class="card release fade-in" data-cat="games">
+        <div class="stub" data-uk="ЗАКІНЧЕНО" data-en="FINISHED">ЗАКІНЧЕНО</div>
         <div class="card-inner">
-          <span class="tag">Програма</span>
-          <h2>TaskFlow — трекер завдань</h2>
-          <p>Невеликий десктопний застосунок для трекінгу задач з нагадуваннями та тегами.</p>
+          <span class="tag" data-uk="Гра" data-en="Game">Гра</span>
+          <h2 data-uk="Code & Play — візуальна новела" data-en="Code & Play — visual novel">Code & Play — візуальна новела</h2>
+          <p data-uk="Code & Play- це інтерактивна кіберпанк-новела з елементами симулятора хакера." data-en="Code & Play is an interactive cyberpunk novel with elements of a hacker simulator.">Code & Play- це інтерактивна кіберпанк-новела з елементами симулятора хакера.</p>
           <div class="release-links">
-            <a href="#" class="primary">↓ Завантажити</a>
-            <a href="#">Детальніше →</a>
+            <a href="#" class="primary" data-uk="↓ Завантажити" data-en="↓ Download">↓ Завантажити</a>
+            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
           </div>
         </div>
       </div>
 
       <div class="card fade-in" data-cat="notes">
-        <h2>Чому я почав цей проєкт</h2>
-        <p>Хотів простий інструмент без зайвого.</p>
+        <h2 data-uk="Чому я почав цей проєкт" data-en="Why I started this project">Чому я почав цей проєкт</h2>
+        <p data-uk="Хотів простий інструмент без зайвого." data-en="I wanted a simple tool without the clutter.">Хотів простий інструмент без зайвого.</p>
       </div>
 
-      <div class="card release fade-in" data-cat="programs">
-        <div class="stub">РЕЛІЗ</div>
+      <div class="card release fade-in" data-cat="bots">
+        <div class="stub" data-uk="В ПРОЦЕСІ" data-en="IN PROGRESS">В ПРОЦЕСІ</div>
         <div class="card-inner">
-          <span class="tag">Програма</span>
-          <h2>PixelSort — сортувальник зображень</h2>
-          <p>Утиліта для пакетного сортування й перейменування фото за EXIF-даними.</p>
+          <span class="tag" data-uk="Бот" data-en="Bot">Бот</span>
+          <h2 data-uk="Platforma bot — телеграм каталог товарів" data-en="Platforma bot — Telegram product catalog">Platforma bot — телеграм каталог товарів</h2>
+          <p data-uk="Телеграм бот для бізнесу з каталогом товарів." data-en="A Telegram business bot featuring a product catalog">Телеграм бот для бізнесу з каталогом товарів.</p>
           <div class="release-links">
-            <a href="#" class="primary">↓ Завантажити</a>
-            <a href="#">Детальніше →</a>
+            <a href="#" class="primary" data-uk="↓ Завантажити" data-en="↓ Download">↓ Завантажити</a>
+            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card release fade-in" data-cat="webs">
+        <div class="stub" data-uk="ЗАКІНЧЕНО" data-en="FINISHED">ЗАКІНЧЕНО</div>
+        <div class="card-inner">
+          <span class="tag" data-uk="Сайт" data-en="Web site">Сайт</span>
+          <h2 data-uk="hkweb — мій власний сайт" data-en="hkweb — my personal website">hkweb — мій власний сайт</h2>
+          <p data-uk="Особистий сайт-портфоліо з кількома унікальними стилями сторінок (від мінімалізму до ретро-естетики MySpace), написаний на HTML/CSS/JS з власним Flask-бекендом для форм, гостьової книги та двомовного інтерфейсу." data-en="A multi-page personal portfolio website with distinct visual styles per page (from minimalist to MySpace-style retro), built with HTML/CSS/JS and a custom Flask backend for forms, a guestbook, and bilingual support.">Особистий сайт-портфоліо з кількома унікальними стилями сторінок (від мінімалізму до ретро-естетики MySpace), написаний на HTML/CSS/JS з власним Flask-бекендом для форм, гостьової книги та двомовного інтерфейсу.</p>
+          <div class="release-links">
+            
+            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
+          </div>
+        </div>
+      </div>
+      <div class="card release fade-in" data-cat="games">
+        <div class="stub" data-uk="В ПРОЦЕСІ" data-en="IN PROGRESS">В ПРОЦЕСІ</div>
+        <div class="card-inner">
+          <span class="tag" data-uk="Гра" data-en="Game">Гра</span>
+          <h2 data-uk="Library of Forgotten Dreams — атмосферна 3D-пригода про котика" data-en="Library of Forgotten Dreams — an atmospheric 3D adventure starring a little cat">Library of Forgotten Dreams — атмосферна 3D-пригода про котика</h2>
+          <p data-uk="Атмосферна 3D-пригода про пам'ять і забуття, де гравець керує котиком-провідником, збираючи фрагменти спогадів людини крізь сюрреалістичні сни-рівні. (Godot 4, GDScript)" data-en="An atmospheric 3D adventure about memory and forgetting, where the player guides a cat companion through surreal dream-levels to collect fragments of a lost memory. (Godot 4, GDScript)">Атмосферна 3D-пригода про пам'ять і забуття, де гравець керує котиком-провідником, збираючи фрагменти спогадів людини крізь сюрреалістичні сни-рівні." (Godot 4, GDScript)</p>
+          <div class="release-links">
+            
+            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
           </div>
         </div>
       </div>
@@ -60,7 +92,7 @@
     </div>
 
     <div class="back">
-      <a href="index.html">← Назад на головну</a>
+      <a href="index.html" data-uk="← Назад на головну" data-en="← Back to home">← Назад на головну</a>
     </div>
   </div>
 
@@ -98,5 +130,6 @@
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
+  <script src="lang.js"></script>
 </body>
 </html>
