@@ -33,18 +33,19 @@
 
     <div class="board">
 
-      <div class="card release fade-in" data-cat="games">
-        <div class="stub" data-uk="ЗАКІНЧЕНО" data-en="FINISHED">ЗАКІНЧЕНО</div>
-        <div class="card-inner">
-          <span class="tag" data-uk="Гра" data-en="Game">Гра</span>
-          <h2 data-uk="Code & Play — візуальна новела" data-en="Code & Play — visual novel">Code & Play — візуальна новела</h2>
-          <p data-uk="Code & Play- це інтерактивна кіберпанк-новела з елементами симулятора хакера." data-en="Code & Play is an interactive cyberpunk novel with elements of a hacker simulator.">Code & Play- це інтерактивна кіберпанк-новела з елементами симулятора хакера.</p>
-          <div class="release-links">
-            <a href="#" class="primary" data-uk="↓ Завантажити" data-en="↓ Download">↓ Завантажити</a>
-            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
-          </div>
-        </div>
-      </div>
+      <div class="card release fade-in" data-cat="games" data-image="codeplay.jpg">
+  <div class="stub" data-uk="ЗАКІНЧЕНО" data-en="FINISHED">ЗАКІНЧЕНО</div>
+  <div class="card-inner">
+    <span class="tag" data-uk="Гра" data-en="Game">Гра</span>
+    <h2 data-uk="Code & Play — візуальна новела" data-en="Code & Play — visual novel">Code & Play — візуальна новела</h2>
+    <p data-uk="Code & Play- це інтерактивна кіберпанк-новела з елементами симулятора хакера." data-en="Code & Play is an interactive cyberpunk novel with elements of a hacker simulator.">Code & Play- це інтерактивна кіберпанк-новела з елементами симулятора хакера.</p>
+    <div class="release-links">
+      <a href="https://hakaga.itch.io/code-play" class="primary" target="_blank" data-uk="Грати →" data-en="Play →">Грати →</a>
+      <a href="#" onclick="openModal(this); return false;" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
+    </div>
+  </div>
+</div>
+      
 
       <div class="card fade-in" data-cat="notes">
         <h2 data-uk="Чому я почав цей проєкт" data-en="Why I started this project">Чому я почав цей проєкт</h2>
@@ -58,8 +59,8 @@
           <h2 data-uk="Platforma bot — телеграм каталог товарів" data-en="Platforma bot — Telegram product catalog">Platforma bot — телеграм каталог товарів</h2>
           <p data-uk="Телеграм бот для бізнесу з каталогом товарів." data-en="A Telegram business bot featuring a product catalog">Телеграм бот для бізнесу з каталогом товарів.</p>
           <div class="release-links">
-            <a href="#" class="primary" data-uk="↓ Завантажити" data-en="↓ Download">↓ Завантажити</a>
-            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
+            <a href="https://t.me/platforma_nv_bot" class="primary" target="_blank" data-uk="Відкрити →" data-en="Open →">Відкрити →</a>
+            <a href="#" onclick="openModal(this); return false;" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
           </div>
         </div>
       </div>
@@ -72,7 +73,7 @@
           <p data-uk="Особистий сайт-портфоліо з кількома унікальними стилями сторінок (від мінімалізму до ретро-естетики MySpace), написаний на HTML/CSS/JS з власним Flask-бекендом для форм, гостьової книги та двомовного інтерфейсу." data-en="A multi-page personal portfolio website with distinct visual styles per page (from minimalist to MySpace-style retro), built with HTML/CSS/JS and a custom Flask backend for forms, a guestbook, and bilingual support.">Особистий сайт-портфоліо з кількома унікальними стилями сторінок (від мінімалізму до ретро-естетики MySpace), написаний на HTML/CSS/JS з власним Flask-бекендом для форм, гостьової книги та двомовного інтерфейсу.</p>
           <div class="release-links">
             
-            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
+            <a href="#" onclick="openModal(this); return false;" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
           </div>
         </div>
       </div>
@@ -84,7 +85,7 @@
           <p data-uk="Атмосферна 3D-пригода про пам'ять і забуття, де гравець керує котиком-провідником, збираючи фрагменти спогадів людини крізь сюрреалістичні сни-рівні. (Godot 4, GDScript)" data-en="An atmospheric 3D adventure about memory and forgetting, where the player guides a cat companion through surreal dream-levels to collect fragments of a lost memory. (Godot 4, GDScript)">Атмосферна 3D-пригода про пам'ять і забуття, де гравець керує котиком-провідником, збираючи фрагменти спогадів людини крізь сюрреалістичні сни-рівні." (Godot 4, GDScript)</p>
           <div class="release-links">
             
-            <a href="#" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
+            <a href="#" onclick="openModal(this); return false;" data-uk="Детальніше →" data-en="Learn more →">Детальніше →</a>
           </div>
         </div>
       </div>
@@ -93,6 +94,16 @@
 
     <div class="back">
       <a href="index.html" data-uk="← Назад на головну" data-en="← Back to home">← Назад на головну</a>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay" onclick="if(event.target === this) closeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <img id="modal-image" src="" alt="" style="display:none; width:100%; border-radius:6px; margin-bottom:16px;">
+      <h2 id="modal-title"></h2>
+      <p id="modal-text"></p>
+      <a href="#" id="modal-download" class="primary" target="_blank">↓ Завантажити</a>
     </div>
   </div>
 
@@ -128,6 +139,42 @@
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    function openModal(linkEl) {
+      const card = linkEl.closest('.card');
+      const title = card.querySelector('h2').textContent;
+      const text = card.querySelector('p').textContent;
+
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-text').textContent = text;
+
+      const img = document.getElementById('modal-image');
+      const imageSrc = card.dataset.image;
+      if (imageSrc) {
+        img.src = imageSrc;
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
+
+      const primary = card.querySelector('.release-links a.primary');
+      const dl = document.getElementById('modal-download');
+      if (primary) {
+        dl.style.display = 'inline-block';
+        dl.href = primary.href;
+        dl.textContent = primary.textContent;
+      } else {
+        dl.style.display = 'none';
+      }
+
+      document.getElementById('modal-overlay').classList.add('visible');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('visible');
+    }
   </script>
 
   <script src="lang.js"></script>
