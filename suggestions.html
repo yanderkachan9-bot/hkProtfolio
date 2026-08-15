@@ -126,6 +126,19 @@
       padding: 18px 0;
       font-size: 18px;
     }
+    .cursor-sparkle {
+      position: absolute;
+      pointer-events: none;
+      color: #29e0e8;
+      font-size: 14px;
+      animation: sparkle-fade 0.7s ease-out forwards;
+      z-index: 999;
+    }
+
+    @keyframes sparkle-fade {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+    }
   </style>
 </head>
 <body>
@@ -186,5 +199,7 @@
   </script>
 
   <script src="lang.js"></script>
+  
+  <script src="sparkles.js"></script>
 </body>
 </html>

@@ -157,6 +157,19 @@
       padding: 18px 0;
       font-size: 18px;
     }
+    .cursor-sparkle {
+      position: absolute;
+      pointer-events: none;
+      color: #ffb238;
+      font-size: 14px;
+      animation: sparkle-fade 0.7s ease-out forwards;
+      z-index: 999;
+    }
+
+    @keyframes sparkle-fade {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+    }
   </style>
 </head>
 <body>
@@ -200,29 +213,35 @@
     const status = document.getElementById('status');
     const entriesBox = document.getElementById('gb-entries');
 
-    function loadEntries() {
-      fetch('http://127.0.0.1:5000/guestbook')
-        .then(res => res.json())
-        .then(entries => {
-          if (entries.length === 0) {
-            entriesBox.innerHTML = '<p>Поки що тут порожньо — стань першим!</p>';
-            return;
-          }
-          entriesBox.innerHTML = entries
-            .slice()
-            .reverse()
-            .map(e => `
-              <div class="entry">
-                <div class="name">${e.name}</div>
-                <div>${e.text}</div>
-              </div>
-            `)
-            .join('');
-        })
-        .catch(() => {
-          entriesBox.innerHTML = '<p>Не вдалось завантажити записи — сервер запущений?</p>';
-        });
-    }
+   function loadEntries() {
+    const lang = localStorage.getItem('lang') || 'uk';
+
+    fetch('https://hkprotfolio-u4lw.onrender.com/guestbook')
+      .then(res => res.json())
+      .then(entries => {
+        if (entries.length === 0) {
+          entriesBox.innerHTML = lang === 'en'
+            ? '<p>Nothing here yet — be the first!</p>'
+            : '<p>Поки що тут порожньо — стань першим!</p>';
+          return;
+        }
+        entriesBox.innerHTML = entries
+          .slice()
+          .reverse()
+          .map(e => `
+            <div class="entry">
+              <div class="name">${e.name}</div>
+              <div>${e.text}</div>
+            </div>
+          `)
+          .join('');
+      })
+      .catch(() => {
+        entriesBox.innerHTML = lang === 'en'
+          ? '<p>Couldn\'t load entries — is the server running?</p>'
+          : '<p>Не вдалось завантажити записи — сервер запущений?</p>';
+      });
+  }
 
     submitBtn.addEventListener('click', () => {
       const name = nameInput.value.trim();
@@ -254,5 +273,7 @@
   </script>
 
   <script src="lang.js"></script>
+    
+  <script src="sparkles.js"></script>
 </body>
 </html>

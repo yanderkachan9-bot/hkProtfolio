@@ -50,7 +50,42 @@ body {
 a {
   color: var(--accent);
 }
+.cursor-sparkle {
+  position: absolute;
+  pointer-events: none;
+  color: var(--accent);
+  font-size: 14px;
+  animation: sparkle-fade 0.7s ease-out forwards;
+  z-index: 999;
+}
 
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #110a1a;
+  border: 2px solid var(--accent);
+  padding: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.tile:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px var(--accent-glow);
+  background: #1a0f2a;
+}
+.tile a {
+  transition: transform 0.2s ease;
+}
+
+.tile:hover a {
+  transform: translateX(4px);
+}
 a:visited {
   color: var(--accent);
 }

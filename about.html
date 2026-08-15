@@ -154,6 +154,19 @@
       padding-top: 16px;
       font-size: 18px;
     }
+    .cursor-sparkle {
+      position: absolute;
+      pointer-events: none;
+      color: #ff2d6b;
+      font-size: 14px;
+      animation: sparkle-fade 0.7s ease-out forwards;
+      z-index: 999;
+    }
+
+    @keyframes sparkle-fade {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+    }
   </style>
 </head>
 <body>
@@ -241,6 +254,7 @@ Yes, I am objectively awesome, so please, commission projects from me or someone
   </div>
 
   <script src="lang.js"></script>
- 
+  
+  <script src="sparkles.js"></script>
 </body>
 </html>
